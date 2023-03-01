@@ -1,0 +1,24 @@
+# Create variables
+
+$WEB_APP_NAME = "HelloWorld0101010010"
+$APP_SERVICE_PLAN_NAME = "HelloWorld0202020"
+$RESOURCE_GROUP_NAME = 'StepUp-Cloud-RG'
+$LOCATION_NAME = 'South India'
+
+# Login
+az login 
+
+# Create a resource group
+az group create --location $LOCATION_NAME --name $RESOURCE_GROUP_NAME
+
+# Create an App Service plan in S1 tier
+az appservice plan create --name $APP_SERVICE_PLAN_NAME --resource-group $RESOURCE_GROUP_NAME --sku Free
+
+# Remove a Resource Group
+az webapp create --name WEB_APP_NAME --resource-group RESOURCE_GROUP_NAME --plan APP_SERVICE_PLAN_NAME
+
+# # Remove a Resource Group
+az group delete --name $RESOURCE_GROUP_NAME
+
+# Run the Script File
+# ./path/WebApp-Service.azcli
