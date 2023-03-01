@@ -13,12 +13,12 @@ stages:
     jobs:
       - job:
         steps: 
-      - task: UseDonNet@2
-        displayName: 'Install .NET Core SDK'
-        inputs:
-          version: '6.x'
-          performMultiLevelLookup: true
-          includePreviewVersions: true # Required for preview versions
+        - task: UseDonNet@2
+          displayName: 'Install .NET Core SDK'
+          inputs:
+            version: '6.x'
+            performMultiLevelLookup: true
+            includePreviewVersions: true # Required for preview versions
 
   - stage: QA
     displayName: Deploy in QA
