@@ -52,10 +52,10 @@ stages:
               publishWebProjects: true
           - task: AzureWebApp@1
             inputs:
-              azureSubscription: 'mysrvconnection'
+              azureSubscription: 'serviceconnection'
               appType: 'webAppLinux'
               appName: 'helloworld00'
-              package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+              package: '$(System.DefaultWorkingDirectory)/**/HelloWorld.zip'
 
 
 
