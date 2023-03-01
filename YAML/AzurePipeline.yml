@@ -3,14 +3,17 @@ stages:
     jobs:
       - job: 
 
-  - stage: "Deploy to Dev"
+  - stage: DEV
+    displayName: Deploy in DEV
     jobs:
       - job:
 
-  - stage: "Deploy to QA"
+  - stage: QA
+    displayName: Deploy in DEV
     jobs:
       - job:
 
-  - stage: "Deploy to Prd"
+  - stage: PRD
+    displayName: Deploy in PRD
     jobs:
       - job:
