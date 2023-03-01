@@ -1,3 +1,5 @@
+trigger:
+  - main
 
 pool:
   vmImage: 'windows-2019'
@@ -14,7 +16,7 @@ stages:
               version: '6.x'
               performMultiLevelLookup: true
               includePreviewVersions: true # Required for preview versions
-              
+
           - task: DotNetCoreCLI@2
             displayName: Restore
             inputs:
