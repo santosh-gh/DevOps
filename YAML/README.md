@@ -128,3 +128,26 @@ https://lzone.de/cheat-sheet/YAML
         - a
         - b
      location: {country: "A", city: "A-A"} 
+
+
+# STEP 1
+
+stages:
+  - stage: Build
+    jobs:
+      - job: 
+
+  - stage: DEV
+    displayName: Deploy in DEV
+    jobs:
+      - job:
+
+  - stage: QA
+    displayName: Deploy in QA
+    jobs:
+      - job:
+
+  - stage: PRD
+    displayName: Deploy in PRD
+    jobs:
+      - job:

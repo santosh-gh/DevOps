@@ -9,7 +9,7 @@ stages:
       - job:
 
   - stage: QA
-    displayName: Deploy in DEV
+    displayName: Deploy in QA
     jobs:
       - job:
 
