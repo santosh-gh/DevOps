@@ -4,6 +4,8 @@ stages:
       - job: 
 
   - stage: Deploy
+    jobs:
+      - job:
 
 # stages: QA
 #   - stage: Build
