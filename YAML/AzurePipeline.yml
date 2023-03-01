@@ -44,7 +44,20 @@ stages:
   - stage: DEV
     displayName: Deploy in DEV
     jobs:
-      - job:        
+      - job: 
+        steps:
+          - task: DotNetCoreCLI@2
+            inputs:
+              command: 'publish'
+              publishWebProjects: true
+          - task: AzureWebApp@1
+            inputs:
+              azureSubscription: 'b798c28b-e334-4ecf-b338-ec314ced3616'
+              appType: 'webAppLinux'
+              appName: 'HelloWorld'
+              package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+
+
 
   - stage: QA
     displayName: Deploy in QA
