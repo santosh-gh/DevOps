@@ -54,7 +54,7 @@ stages:
             inputs:
               azureSubscription: 'mysrvconnection'
               appType: 'webAppLinux'
-              appName: 'HelloWorld'
+              appName: 'helloworld00'
               package: '$(System.DefaultWorkingDirectory)/**/*.zip'
 
 
