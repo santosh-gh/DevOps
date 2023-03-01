@@ -189,7 +189,7 @@ stages:
               command: publish
               publishWebProjects: false
               projects: '**/*.csproj'
-              arguments: '--configuration release --output $(build.artifactstagingdirectory)/ property:PublishWithAspNetCoreTargetManifest=false'
+              arguments: '--configuration release --output $(build.artifactstagingdirectory)/property:PublishWithAspNetCoreTargetManifest=false'
               zipAfterPublish: false
           
           - task: PublishBuildArtifacts@1 
