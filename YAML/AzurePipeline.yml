@@ -1,11 +1,14 @@
-stages: Dev
+stages: 
   - stage: Build
+    jobs:
+      - job: 
+
   - stage: Deploy
 
-stages: QA
-  - stage: Build
-  - stage: Deploy
+# stages: QA
+#   - stage: Build
+#   - stage: Deploy
 
-stages: Prd
-  - stage: Build
-  - stage: Deploy
+# stages: Prd
+#   - stage: Build
+#   - stage: Deploy
