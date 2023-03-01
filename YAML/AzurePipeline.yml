@@ -22,6 +22,25 @@ stages:
               command: restore
               projects: '**/*.csproj'
 
+          - task: DotNetCoreCLI@2
+            displayName: Build
+            inputs:
+              projects: '**/*.csproj'
+ 
+          - task: DotNetCoreCLI@2
+            displayName: Publish
+            inputs:
+              command: publish
+              publishWebProjects: false
+              projects: '**/*.csproj'
+              arguments: '--configuration release --output $(build.artifactstagingdirectory) /property:PublishWithAspNetCoreTargetManifest=false'
+              zipAfterPublish: false
+          
+          - task: PublishBuildArtifacts@1 
+            displayName: 'Publish Artifact'
+            inputs:
+              ArtifactName: drop
+
   - stage: DEV
     displayName: Deploy in DEV
     jobs:
