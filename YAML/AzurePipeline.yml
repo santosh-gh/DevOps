@@ -14,6 +14,12 @@ stages:
               version: '6.x'
               performMultiLevelLookup: true
               includePreviewVersions: true # Required for preview versions
+              
+          - task: DotNetCoreCLI@2
+            displayName: Restore
+            inputs:
+              command: restore
+              projects: '**/*.csproj'
 
   - stage: DEV
     displayName: Deploy in DEV
