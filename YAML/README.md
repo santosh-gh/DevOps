@@ -211,3 +211,77 @@ stages:
     displayName: Deploy in PRD
     jobs:
       - job:
+
+
+# STEP 3
+
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+stages:
+  - stage: Build
+    jobs:
+      - job: 
+        steps: 
+          - task: UseDotNet@2
+            displayName: 'Install .NET Core SDK'
+            inputs:
+              version: '6.x'
+              performMultiLevelLookup: true
+              includePreviewVersions: true # Required for preview versions
+
+          - task: DotNetCoreCLI@2
+            displayName: Restore
+            inputs:
+              command: restore
+              projects: '**/*.csproj'
+
+          - task: DotNetCoreCLI@2
+            displayName: Build
+            inputs:
+              projects: '**/*.csproj'
+ 
+          - task: DotNetCoreCLI@2
+            displayName: Publish
+            inputs:
+              command: publish
+              publishWebProjects: false
+              projects: '**/*.csproj'
+              arguments: '--configuration release --output $(build.artifactstagingdirectory)'
+              zipAfterPublish: true
+          
+          - task: PublishBuildArtifacts@1 
+            displayName: 'Publish Artifact'
+            inputs:
+              ArtifactName: drop
+
+  - stage: DEV
+    displayName: Deploy in DEV
+    jobs:
+      - job: 
+        steps:
+          - task: DotNetCoreCLI@2
+            inputs:
+              command: 'publish'
+              publishWebProjects: true
+          - task: AzureWebApp@1
+            inputs:
+              azureSubscription: 'serviceconnection'
+              appType: 'webAppLinux'
+              appName: 'helloworld00'
+              package: '$(System.DefaultWorkingDirectory)/**/HelloWorld.zip'
+
+
+
+  - stage: QA
+    displayName: Deploy in QA
+    jobs:
+      - job:
+
+  - stage: PRD
+    displayName: Deploy in PRD
+    jobs:
+      - job:
