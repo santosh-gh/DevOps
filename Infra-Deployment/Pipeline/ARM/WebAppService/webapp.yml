@@ -1,0 +1,41 @@
+name: webapp
+
+pool: 
+  vmimage: "ubuntu-latest" 
+
+variables:
+  artifactname: "drop"
+  System.Debug: "true"
+  serviceconnection: "my-service-connection"
+
+trigger: none
+
+stages:
+  - stage: Build
+    displayName: Build
+    jobs:
+      - template: ../build.yml
+
+  - stage: Deploy
+    displayName: "Deploy WebApp Service"
+    variables:
+      - group: webapp-variables
+    jobs: 
+      - deployment: Deploy_WebApp_Service
+        workspace:
+          clean: all
+        displayName: "Deploy WebApp Service"
+        environment: "Dev"
+        strategy: 
+          runOnce:
+            deploy: 
+              steps:
+                - template: ../deploy.yml
+                  parameters: 
+                    DeploymentName: $(DeploymentName)
+                    serviceConnection: $(ServiceConnection)
+                    region: $(Region)
+                    TemplateFilePath: "Pipeline/ARM/WebAppService/WebApp-Service.json"
+                    TemplateParameterFilePath: "Pipeline/ARM/WebAppService/WebApp-Service.parameters.json"
+                    resourceGroupName: $(ResourceGroup)    
+                    webappname: $(WebAppName)    

@@ -1,0 +1,24 @@
+jobs:
+  - job: "Build"
+    pool:
+      vmimage: "ubuntu-latest"
+    steps:
+      - checkout: self 
+
+      - task: CopyFiles@2
+        displayName: Copy Files
+        inputs:
+          SourceFolder: $(Build.SourcesDirectory)/
+          Contents: |
+            **/**       
+          TargetFolder: $(Build.ArtifactStagingDirectory)/
+
+      - task: PublishPipelineArtifact@1
+        displayName: Publish Pipeline Artifact
+        inputs:
+          TargetPath: "$(Build.ArtifactStagingDirectory)"
+          artifact: "$(artifactname)"
+          publishlocation: "pipeline"
+
+
+
