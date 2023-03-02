@@ -1,5 +1,7 @@
 name: webapp
 
+trigger: none
+
 pool: 
   vmimage: "ubuntu-latest" 
 
@@ -7,7 +9,7 @@ variables:
   artifactname: "drop"
   System.Debug: "true"  
 
-trigger: none
+  - group: webapp-variables
 
 stages:
   - stage: Build
@@ -17,8 +19,7 @@ stages:
 
   - stage: Deploy
     displayName: "Deploy WebApp Service"
-    variables:
-      - group: webapp-variables
+    
     jobs: 
       - deployment: Deploy_WebApp_Service
         workspace:
