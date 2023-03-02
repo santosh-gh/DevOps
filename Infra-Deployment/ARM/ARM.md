@@ -1,5 +1,20 @@
 # To deploy a ARM template, use any of the following options:
 
+# Template format
+  In its simplest structure, a template has the following elements:
+
+  
+  {
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "",
+    "apiProfile": "",
+    "parameters": {  },
+    "variables": {  },
+    "functions": [  ],
+    "resources": [  ],
+    "outputs": {  }
+  }
+
 - Azure portal
 
 - Azure CLI
