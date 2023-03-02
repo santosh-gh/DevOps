@@ -6,8 +6,10 @@ pool:
   vmimage: "ubuntu-latest" 
 
 variables:
-  artifactname: "drop"
-  System.Debug: "true"  
+  - name: artifactname
+    value: "drop"
+  - name: System.Debug
+    value: "true"  
   - group: webapp-variables
 
 stages:
