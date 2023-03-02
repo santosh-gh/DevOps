@@ -5,8 +5,7 @@ pool:
 
 variables:
   artifactname: "drop"
-  System.Debug: "true"
-  serviceconnection: "my-service-connection"
+  System.Debug: "true"  
 
 trigger: none
 
