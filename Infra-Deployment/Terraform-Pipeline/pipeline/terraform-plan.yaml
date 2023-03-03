@@ -28,4 +28,4 @@
             #commandOptions: '-input=false -var-file="templates/${{ parameters.environment }}.tfvars"'
             commandOptions: '-out=tfplan'
             environmentServiceNameAzureRM: '${{ parameters.backendServiceArm }}'
-            workingDirectory: '$(System.DefaultWorkingDirectory)/Cluster-Deployment/Terraform/template'
+            workingDirectory: '$(System.DefaultWorkingDirectory)/Infra-Deployment/Terraform-Pipeline/template'

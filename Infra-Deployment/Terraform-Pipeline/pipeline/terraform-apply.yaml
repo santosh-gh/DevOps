@@ -24,4 +24,4 @@
             command: 'apply'
             #commandOptions: '-input=false -auto-approve -var-file="../${{ parameters.environment }}/${{ parameters.environment }}.tfvars"'
             environmentServiceNameAzureRM: '${{ parameters.backendServiceArm }}'
-            workingDirectory: '$(System.DefaultWorkingDirectory)/Cluster-Deployment/Terraform/template'
+            workingDirectory: '$(System.DefaultWorkingDirectory)/Infra-Deployment/Terraform-Pipeline/template'
