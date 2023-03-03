@@ -15,7 +15,7 @@
             backendAzureRmStorageAccountName: '${{ parameters.backendAzureRmStorageAccountName }}'
             backendAzureRmContainerName: '${{ parameters.backendAzureRmContainerName }}'
             backendAzureRmKey: '${{ parameters.backendAzureRmKey }}' 
-            workingDirectory: '$(System.DefaultWorkingDirectory)/Cluster-Deployment/Terraform/template'
+            workingDirectory: '$(System.DefaultWorkingDirectory)/Infra-Deployment/Terraform-Pipeline/template'
         - task: TerraformTaskV1@0
           displayName: 'apply'
           condition: and(succeeded(), eq(variables['Action'], 'Apply'))
