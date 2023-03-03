@@ -333,7 +333,7 @@ production version, must merge back into develop and master.
 5. Hotfix - hotfix branches are necessary to act immediately upon an undesired status of master. May branch 
    off from master and must merge into master and develop.
 
-# Git flow Workflow
+# Git flow guidelines:
 But how are we going to manage each branch and what should be the real flow? Wouldn’t there be conflicts in branches with 
 the modification in some other branches? Ok!! So let’s understand why we are using these all branches and what will 
 be the impact of each branch.
@@ -348,7 +348,7 @@ be the impact of each branch.
 
 - Hotfix branch will be created from the master branch.
 
-# Creating and Merging Branches
+Creating and Merging Branches
 Let us assume we already had a Master and Develop branch.
 
 1. To start working on a new feature, we will create a new feature branch feature/f1 out of Develop.
