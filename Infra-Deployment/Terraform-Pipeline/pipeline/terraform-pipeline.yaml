@@ -17,7 +17,7 @@ parameters:
 
 variables:
   - name: backendServiceArm
-    value: 'scvsteupcloud'
+    value: 'msdocs-sp-'
   - name: backendAzureRmResourceGroupName
     value: 'MyRG'
   - name: backendAzureRmStorageAccountName
@@ -93,3 +93,16 @@ stages :
           backendAzureRmKey: ${{ variables.backendAzureRmKey }}
           environment: ${{ variables.environment }}
           terraform_version: ${{ variables.terraform_version }}
+
+
+          let "randomIdentifier=$RANDOM*$RANDOM"  
+$servicePrincipalName="msdocs-sp-$randomIdentifier"
+$roleName="Reader"
+$subscriptionID=$(az account show --query id -o tsv)
+# Verify the ID of the active subscription
+echo "Using subscription ID $subscriptionID"
+resourceGroup="myResourceGroupName"
+
+
+
+az ad sp create-for-rbac --name $servicePrincipalName --role $roleName --scopes /subscriptions/$subscriptionID/resourceGroups/$resourceGroup
