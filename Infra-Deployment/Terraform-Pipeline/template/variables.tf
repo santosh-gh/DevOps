@@ -1,6 +1,6 @@
 variable "rgname" {
   type        = string
-  default = "stepuprg"
+  default = "MyRG"
   description = "resource group name"
 }
 
