@@ -227,7 +227,8 @@
     git clean -ffrx
     List Branch in Bash Prompt PS1
     There are several documentations online e.g. this one. In the end it boils down to running “git branch” on each prompt and 
-    to use an environment function __git_ps1() that is set up by “git branch” to print the branch if there is one. So if your current $PS1 is
+    to use an environment function __git_ps1() that is set up by “git branch” to print the branch if there is one. 
+    So if your current $PS1 is
 
     export PS1='\u@\h:\w\$ "
     you could extend it to
@@ -378,8 +379,8 @@ sure to get it tested enough before you say Master as the most STABLE branch.
 
 Trunk Based development
 In the trunk-based development model developers regularly merge their code changes into a central repository usually master branch. 
-Usually, create short-lived feature branches. Once code on their branch compiles and passes all tests, they merge it straight to master. 
-When teams are able to regularly merge small changes they minimize the complexity of the merge and thereby the effort.
+Usually, create short-lived feature branches. Once code on their branch compiles and passes all tests, they merge it straight 
+to master. When teams are able to regularly merge small changes they minimize the complexity of the merge and thereby the effort.
 
 Github Flow
 GitHub flow is a lightweight, branch-based workflow that supports teams and projects where deployments are made regularly. 
@@ -390,15 +391,16 @@ Anything in the master branch is always deployable. The below guide explains how
     - A branch is created off of master when working on a feature or a fix. Your branch name should be descriptive
       Add commits
 
-    - Start making changes. Whenever you add, edit, or delete a file, add relevant commit messages for other people to follow along 
-      and provide feedback Open a Pull Request
+    - Start making changes. Whenever you add, edit, or delete a file, add relevant commit messages for other people to 
+      follow along and provide feedback Open a Pull Request
       
-    - Initiate a discussion about your commits through pull Request. Pull Requests help start code review and conversation about proposed 
-      changes before they’re merged into the master branch
+    - Initiate a discussion about your commits through pull Request. Pull Requests help start code review and conversation 
+      about proposed       changes before they’re merged into the master branch
     
     Discuss and review your code
-    - Pull Request leads to a discussion with the reviewer, through comments, questions. Helps to improve project standards, coding quality.
-      Deploy
-
-    - Once your pull request has been reviewed and the branch passes your tests, you can deploy your changes to verify them in production. 
-      If your branch causes issues, you can roll it back by deploying the existing master into production.
+    - Pull Request leads to a discussion with the reviewer, through comments, questions. Helps to improve project standards, 
+      coding quality.
+      
+    Deploy
+    - Once your pull request has been reviewed and the branch passes your tests, you can deploy your changes to verify them 
+      in production. If your branch causes issues, you can roll it back by deploying the existing master into production.
