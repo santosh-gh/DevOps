@@ -84,7 +84,7 @@ stages :
   - stage: terraform_destroy
     condition: contains('${{ parameters.Action }}', 'Destroy')
     jobs:
-      - template: templates/terraform-destroy.yaml
+      - template: terraform-destroy.yaml
         parameters:
           backendServiceArm: ${{ variables.backendServiceArm }}
           backendAzureRmResourceGroupName: ${{ variables.backendAzureRmResourceGroupName }}
