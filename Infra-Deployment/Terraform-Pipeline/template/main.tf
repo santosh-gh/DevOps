@@ -1,12 +1,3 @@
-
-terraform {    
-  required_providers {    
-    azurerm = {    
-      source = "hashicorp/azurerm"    
-    }    
-  }    
-} 
-
 # Azurerm Provider configuration
 provider "azurerm" {
   features {}
