@@ -5,7 +5,7 @@
   
 # GIT Configuaration
   
-    Git has 3 levels f configurations
+    Git has 3 levels of configurations
     - Repository/Project Level (Local)
     - User Account (Global Level)  
     - System Level (Git Installation)
