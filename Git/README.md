@@ -284,6 +284,26 @@
     git -c http.sslVerify=false <command> 
 
 # GIT Branching Strategy
+There are a few popular git branching strategies at the moment
+
+- GitFlow (Feature Based Development)
+
+- Trunk Based Development
+
+- Github Flow
+
+GitFlow (Feature Based Development)
+GitFlow involves creating multiple levels of branching off of master where changes to feature branches are only periodically merged all the way back to master to trigger a release.
+Main branches
+The central repo holds two main branches with an infinite lifetime
+master — contains production-ready code
+develop — is continuous integration branch
+
+Supporting branches
+In addition to the master and develop, GitFlow uses a variety of supporting branches with a limited lifetime, they get removed eventually.
+Feature branches — These branches help parallel development between team members, ease the tracking of features. Should branch off from develop, must merge back into develop.
+Release branches — Release branches support the preparation of a new production release. Use release branches to work on a particular release (multiple features). May branch off from develop, must merge back into develop and master.
+Hotfix branches — Hotfix branches are very much like release branches, these are created to fix live unplanned production issues. Maybe branched off from the corresponding tag on the master branch that marks the production version, must merge back into develop and master.
 
 # Branches
 
@@ -335,29 +355,6 @@ Let us assume we already had a Master and Develop branch.
 10. Cheer’s, we have the most stable branch “The Master Branch”, and we are ready to deploy this to production.
 
 One of the most important things to be noted is that TESTING plays a major role in getting the most stable branches, so make sure to get it tested enough before you say Master as the most STABLE branch.
-
-
-# Strategies
-There are a few popular git branching strategies at the moment
-
-- GitFlow (Feature Based Development)
-
-- Trunk Based Development
-
-- Github Flow
-
-GitFlow (Feature Based Development)
-GitFlow involves creating multiple levels of branching off of master where changes to feature branches are only periodically merged all the way back to master to trigger a release.
-Main branches
-The central repo holds two main branches with an infinite lifetime
-master — contains production-ready code
-develop — is continuous integration branch
-
-Supporting branches
-In addition to the master and develop, GitFlow uses a variety of supporting branches with a limited lifetime, they get removed eventually.
-Feature branches — These branches help parallel development between team members, ease the tracking of features. Should branch off from develop, must merge back into develop.
-Release branches — Release branches support the preparation of a new production release. Use release branches to work on a particular release (multiple features). May branch off from develop, must merge back into develop and master.
-Hotfix branches — Hotfix branches are very much like release branches, these are created to fix live unplanned production issues. Maybe branched off from the corresponding tag on the master branch that marks the production version, must merge back into develop and master.
 
 Trunk Based development
 In the trunk-based development model developers regularly merge their code changes into a central repository usually master branch. Usually, create short-lived feature branches. Once code on their branch compiles and passes all tests, they merge it straight to master. When teams are able to regularly merge small changes they minimize the complexity of the merge and thereby the effort.
