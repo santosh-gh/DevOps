@@ -316,18 +316,29 @@
 
 # Branches
 
-    1. Master - This branch contains production code. All development code is merged into master in sometime.
+    1. Master
+        This branch contains the live-production code.
+        All development code is merged into master in some time.
+        Represents what’s in production.
 
-    2. Develop - This branch contains pre-production code. When the features are finished then they are merged into develop.
+    2. Develop 
+        This branch contains pre-production code. When the features are finished then they are merged into develop.
+        When the features are finished then they are merged into develop.
+        Code reviews happen when you raise PR against develop from feature
+        Develop is thus some buffer between “dev done” and “in production”
 
-    3. Feature / Bug Fixes / Issues - Feature branches are used to develop new features for the upcoming releases. 
-    May branch off from    develop and must merge into develop.
+    3. Feature / Bug Fixes / Issues - 
+        Feature branches are used to develop new features for the upcoming releases. 
+        May branch off from develop and must merge into develop.
 
-    4. Release - release branches support preparation of a new production release. They allow many minor bug to be 
-    fixed and preparation of meta-data for a release. May branch off from develop and must merge into master anddevelop.
+    4. Release - 
+        Release branches support preparation of a new production release. 
+        They allow many minor bug to be fixed and preparation of meta-data for a release. 
+        May branch off from develop and must merge into master anddevelop.
 
-    5. Hotfix - hotfix branches are necessary to act immediately upon an undesired status of master. May branch 
-    off from master and must merge into master and develop.
+    5. Hotfix - 
+        hotfix branches are necessary to act immediately upon an undesired status of master. 
+        May branch off from master and must merge into master and develop.
 
 # Git flow guidelines:
     But how are we going to manage each branch and what should be the real flow? Wouldn’t there be conflicts in branches with 
@@ -401,3 +412,10 @@
     Deploy
     - Once your pull request has been reviewed and the branch passes your tests, you can deploy your changes to verify them 
       in production. If your branch causes issues, you can roll it back by deploying the existing master into production.
+
+# Branching vs Tagging
+    A branch is used if you have 2 different versions of the repository at the same time.
+    A tag is a way to mark a point in time in your repository.
+    You should add a tag to mark a released version.
+    If you then need to make bug fixes (via hotfix branch) to that release (master) you would create a branch at the tag.
+    HEAD moves with the branch it points to and with tag, we can have a detached HEAD mode

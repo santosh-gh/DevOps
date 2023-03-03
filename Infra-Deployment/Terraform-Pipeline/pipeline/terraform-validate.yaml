@@ -1,0 +1,29 @@
+  jobs:
+    - job: terraform_validate
+      continueOnError: false
+      steps:
+        - checkout: self
+
+        - script: |
+              ls $(System.DefaultWorkingDirectory)
+
+        - task: TerraformInstaller@0
+          displayName: 'install'
+          inputs:
+            terraformVersion: '${{ parameters.terraform_version }}'
+        - task: TerraformTaskV1@0
+          displayName: 'init'
+          inputs:
+            provider: 'azurerm'
+            command: 'init'            
+            backendServiceArm: '${{ parameters.backendServiceArm }}'
+            backendAzureRmResourceGroupName: '${{ parameters.backendAzureRmResourceGroupName }}'
+            backendAzureRmStorageAccountName: '${{ parameters.backendAzureRmStorageAccountName }}'
+            backendAzureRmContainerName: '${{ parameters.backendAzureRmContainerName }}'
+            backendAzureRmKey: '${{ parameters.backendAzureRmKey }}'  
+            workingDirectory: '$(System.DefaultWorkingDirectory)/Cluster-Deployment/Terraform/template'           
+        - task: TerraformTaskV1@0
+          displayName: 'validate'
+          inputs:
+            provider: 'azurerm'
+            command: 'validate'
