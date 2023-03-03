@@ -355,16 +355,16 @@
     4. It’s decided to put feature/f2 in the next release which is planned in the next few weeks.
 
     5. At this point we will create a release branch from develop with a version tag. We call this branch release/v0.1.0. 
-    And this release branch will be sent for testing.
+       And this release branch will be sent for testing.
 
     6. During testing we got some issues again and created some other bugfix1 and bugfix2 branches out of release. 
-    Once bugfix1 and bugfix2 are merged to release, make sure to merge back to develop and feature/f1.
+       Once bugfix1 and bugfix2 are merged to release, make sure to merge back to develop and feature/f1.
 
-    7. Once we are sure with the testing, this branch is now much more stable and we are ready to merge it to the master branch. 
-    And again send the Master branch for testing.
+    7. Once we are sure with the testing, this branch is now much more stable and we are ready to merge it to the 
+       master branch. And again send the Master branch for testing.
 
-    8. During testing we again faced an issue, and this time we have to create a hotfix branch out of master, we call this branch 
-    hotfix/hf1.
+    8. During testing we again faced an issue, and this time we have to create a hotfix branch out of master, we call 
+       this branch hotfix/hf1.
 
     9. Once the hotfix branch is merged to master, it will be merged back to develop and feature/f1 branch.
 
@@ -374,9 +374,10 @@
     sure to get it tested enough before you say Master as the most STABLE branch.
 
     Trunk Based development
-    In the trunk-based development model developers regularly merge their code changes into a central repository usually master branch. 
-    Usually, create short-lived feature branches. Once code on their branch compiles and passes all tests, they merge it straight 
-    to master. When teams are able to regularly merge small changes they minimize the complexity of the merge and thereby the effort.
+    In the trunk-based development model developers regularly merge their code changes into a central repository usually 
+    master branch.     Usually, create short-lived feature branches. Once code on their branch compiles and passes all tests, 
+    they merge it straight     to master. When teams are able to regularly merge small changes they minimize the complexity
+    of the merge and thereby the effort.
 
     Github Flow
     GitHub flow is a lightweight, branch-based workflow that supports teams and projects where deployments are made regularly. 
