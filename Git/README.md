@@ -295,7 +295,7 @@
 
 4. Release - release branches support preparation of a new production release. They allow many minor bug to be fixed and preparation of meta-data for a release. May branch off 
    from develop and must merge into master anddevelop.
-   
+
 5. Hotfix - hotfix branches are necessary to act immediately upon an undesired status of master. May branch off from master and must merge into master and develop.
 
 # Git flow Workflow
@@ -335,3 +335,50 @@ Let us assume we already had a Master and Develop branch.
 10. Cheer’s, we have the most stable branch “The Master Branch”, and we are ready to deploy this to production.
 
 One of the most important things to be noted is that TESTING plays a major role in getting the most stable branches, so make sure to get it tested enough before you say Master as the most STABLE branch.
+
+
+# Strategies
+There are a few popular git branching strategies at the moment
+
+- GitFlow (Feature Based Development)
+
+- Trunk Based Development
+
+- Github Flow
+
+GitFlow (Feature Based Development)
+GitFlow involves creating multiple levels of branching off of master where changes to feature branches are only periodically merged all the way back to master to trigger a release.
+Main branches
+The central repo holds two main branches with an infinite lifetime
+master — contains production-ready code
+develop — is continuous integration branch
+
+Supporting branches
+In addition to the master and develop, GitFlow uses a variety of supporting branches with a limited lifetime, they get removed eventually.
+Feature branches — These branches help parallel development between team members, ease the tracking of features. Should branch off from develop, must merge back into develop.
+Release branches — Release branches support the preparation of a new production release. Use release branches to work on a particular release (multiple features). May branch off from develop, must merge back into develop and master.
+Hotfix branches — Hotfix branches are very much like release branches, these are created to fix live unplanned production issues. Maybe branched off from the corresponding tag on the master branch that marks the production version, must merge back into develop and master.
+
+Trunk Based development
+In the trunk-based development model developers regularly merge their code changes into a central repository usually master branch. Usually, create short-lived feature branches. Once code on their branch compiles and passes all tests, they merge it straight to master. When teams are able to regularly merge small changes they minimize the complexity of the merge and thereby the effort.
+
+Github Flow
+GitHub flow is a lightweight, branch-based workflow that supports teams and projects where deployments are made regularly. Anything in the master branch is always deployable. The below guide explains how GitHub flow works.
+
+# Github Flow guidelines:
+    Create a branch
+    - A branch is created off of master when working on a feature or a fix. Your branch name should be descriptive
+      Add commits
+
+    - Start making changes. Whenever you add, edit, or delete a file, add relevant commit messages for other people to follow along and provide feedback
+      Open a Pull Request
+      
+    - Initiate a discussion about your commits through pull Request. Pull Requests help start code review and conversation about proposed changes before they’re merged into 
+      the master branch
+    
+    Discuss and review your code
+    - Pull Request leads to a discussion with the reviewer, through comments, questions. Helps to improve project standards, coding quality.
+      Deploy
+
+    - Once your pull request has been reviewed and the branch passes your tests, you can deploy your changes to verify them in production. If your branch causes issues, you
+      can roll it back by deploying the existing master into production.
